@@ -1,0 +1,39 @@
+language: generic
+sudo: required
+dist: trusty
+
+os:
+  - linux
+  - osx
+
+env:
+  global:
+    - WINEPREFIX=~/.winelaz
+    - DISPLAY=:99.0
+  matrix:
+    - FPC_PKG=true  # Use the latest version from the default package manager
+    - FPC_VER=3.0.2 # Use specific (binary) release
+
+matrix:
+  include:
+    - os: linux
+      env: FPC_VER=3.0.2  FPC_ENV=wine WINEARCH=win32 FPC_OPT="--os=win32 --cpu=i386"
+    - os: linux
+      env: FPC_VER=3.0.2  FPC_ENV=wine WINEARCH=win64 FPC_OPT="--os=win64 --cpu=x86_64"
+
+before_install:
+  # Start virtual display server
+  - Xvfb $DISPLAY &
+
+install:
+  # Install prerequisites (fpc/lazarus/wine/qemu)
+  - ./.travis.install.py
+
+script:
+  - fpc $FPC_OPT hello.pp                    # Build my_lazarus_test project
+  - $FPC_ENV ./hello                     # Run my_lazarus_test testsuite
+
+notifications:
+  email:
+    on_success: false
+    on_failure: change
