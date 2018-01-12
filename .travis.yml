@@ -12,7 +12,7 @@ install:
 
 script:
   - fpc hello.pp 
-  - ./hello.pp
+  - ./hello
 
 notifications:
   email:
