@@ -8,9 +8,14 @@ os:
   - osx
 
 install:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update -qq         ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -qq -y fpc ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]];   then brew cask install fpc           ; fi
+  - echo $TRAVIS_OS_NAME
+  
+  - if ["$TRAVIS_OS_NAME" == "linux"]; then 
+        sudo apt-get update -qq;
+        sudo apt-get install -qq -y fpc; 
+    else
+         brew cask install fpc; 
+    fi
   
 script:
   - fpc hello.pp 
