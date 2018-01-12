@@ -14,7 +14,7 @@ install:
         sudo apt-get update -qq;
         sudo apt-get install -qq -y fpc; 
     else
-         brew cask install fpc; 
+         brew cask install fpcsrc; 
     fi
   
 script:
