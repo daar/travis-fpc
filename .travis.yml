@@ -9,7 +9,7 @@ os:
   - windows
 
 install:
-  - 'echo "OS: ${TRAVIS_OS_NAME}"'
+  - echo "${TRAVIS_OS_NAME}"
   
   - if [ ${TRAVIS_OS_NAME} == "linux" ]; then 
         sudo apt-get update -qq;
