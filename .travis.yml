@@ -9,17 +9,19 @@ os:
   - windows
 
 install:
-  - echo ${TRAVIS_OS_NAME}
+  - echo "OS: ${TRAVIS_OS_NAME}"
   
   - if [ ${TRAVIS_OS_NAME} == "linux" ]; then 
         sudo apt-get update -qq;
         sudo apt-get install -qq -y fpc; 
-    fi
-  - if [ ${TRAVIS_OS_NAME} == "osx" ]; then 
-        brew install fpc caskroom/cask/brew-cask;
-        brew cask install fpcsrc; 
-    fi
-  - if [ ${TRAVIS_OS_NAME} == "windows" ]; then 
+    else
+        if [ ${TRAVIS_OS_NAME} == "osx" ]; then 
+            brew install fpc caskroom/cask/brew-cask;
+            brew cask install fpcsrc; 
+        else
+            if [ ${TRAVIS_OS_NAME} == "windows" ]; then 
+            fi
+        fi
     fi
   
 script:
