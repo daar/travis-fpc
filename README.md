@@ -9,4 +9,4 @@ The script in this repository is supposed to be able to compile FPC code on the 
 
 - [ ] Windows (Wine)
 - [X] Linux
-- [ ] OSX
+- [X] OSX
