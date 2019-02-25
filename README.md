@@ -7,6 +7,6 @@ This is a simple repository meant to test building FPC only apps. All credits sh
 
 The script in this repository is supposed to be able to compile FPC code on the following platforms;
 
-- [ ] Windows (Wine)
+- [ ] Windows
 - [X] Linux
 - [X] OSX
