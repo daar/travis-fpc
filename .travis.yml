@@ -11,17 +11,18 @@ os:
 install:
   - echo "${TRAVIS_OS_NAME}"
   
-  - if [ ${TRAVIS_OS_NAME} == "linux" ]; then 
+  - if [ ${TRAVIS_OS_NAME} == "linux" ]; then
         sudo apt-get update -qq;
-        sudo apt-get install -qq -y fpc; 
+        sudo apt-get install -qq -y fpc;
     fi
     
-  - if [ ${TRAVIS_OS_NAME} == "osx" ]; then 
+  - if [ ${TRAVIS_OS_NAME} == "osx" ]; then
         brew install fpc caskroom/cask/brew-cask;
-        brew cask install fpcsrc; 
+        brew cask install fpcsrc;
     fi
     
-  - if [ ${TRAVIS_OS_NAME} == "windows" ]; then 
+  - if [ ${TRAVIS_OS_NAME} == "windows" ]; then
+        echo "Hello Windows!";
     fi
   
 script:
